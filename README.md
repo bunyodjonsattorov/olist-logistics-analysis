@@ -14,9 +14,11 @@ This project analyzes order data from the Brazilian e-commerce platform Olist to
 ```
 olist-logistics-analysis/
 ├── data/                          # Dataset files (not tracked in git)
+│   ├── olist_orders_dataset.csv
 │   └── olist_order_items_dataset.csv
 ├── src/                           # Python scripts
-│   └── 01_exploration.py          # Initial data exploration
+│   ├── 01_exploration.py          # Initial data exploration
+│   └── 02_logistics.py            # Logistics and order status analysis
 ├── .gitignore                     # Git ignore rules
 ├── README.md                      # Project documentation
 └── requirements.txt               # Python dependencies
@@ -32,7 +34,7 @@ olist-logistics-analysis/
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/olist-logistics-analysis.git
+git clone https://github.com/bunyodjonsattorov/olist-logistics-analysis.git
 cd olist-logistics-analysis
 ```
 
@@ -47,18 +49,30 @@ pip install -r requirements.txt
 
 ### Usage
 
-Run the initial exploration script:
+Run the analysis scripts:
 ```bash
+# Initial data exploration
 python3 src/01_exploration.py
+
+# Logistics and order status analysis
+python3 src/02_logistics.py
 ```
 
 ## 📈 Analysis Highlights
 
-Current analysis includes:
-- Dataset shape and structure exploration
-- High-value items analysis (price > R$100)
-- Top 5 sellers by total revenue
-- Price distribution patterns
+### Data Exploration (`01_exploration.py`)
+- Dataset overview: 112,650 orders across 7 columns
+- High-value items: 40,313 items priced over R$100 (35.79%)
+- Top 5 sellers by total revenue identified
+- Revenue leaders earn R$187K - R$229K
+
+### Logistics Analysis (`02_logistics.py`)
+- Total platform revenue: **R$13.59M**
+- Order status breakdown:
+  - Delivered orders: 97% of revenue (R$13.22M)
+  - Shipped orders: R$150K
+  - Canceled orders: R$95K
+- Key insight: 97% revenue concentration in delivered status
 
 ## 📦 Dataset
 
